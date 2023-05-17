@@ -14,7 +14,7 @@ import {
   useMantineTheme,
   ActionIcon,
 } from '@mantine/core';
-import { Home, NavBar } from "./components";
+import { Wallet, NavBar, Utilities } from "./components";
 
 function App() {
   const theme = useMantineTheme();
@@ -44,7 +44,7 @@ function App() {
         // }
         footer={
           <Footer height={60} p="md">
-            Application footer
+            <Utilities />
           </Footer>
         }
         header={
@@ -72,7 +72,7 @@ function App() {
           </Header>
         }
       >
-        <Home />
+        <Wallet />
       </AppShell>
     </MantineProvider>
   );
