@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IconWallet } from '@tabler/icons-react';
 // import { invoke } from "@tauri-apps/api/tauri";
 import {
   MantineProvider,
@@ -11,6 +12,7 @@ import {
   MediaQuery,
   Burger,
   useMantineTheme,
+  ActionIcon,
 } from '@mantine/core';
 import { Home } from "./components";
 
@@ -57,8 +59,15 @@ function App() {
                   mr="xl"
                 />
               </MediaQuery>
-
-              <Text>Application header</Text>
+              <ActionIcon variant="gradient" gradient={{ from: 'indigo', to: 'cyan', deg: 45 }} size="md"><IconWallet size={18} /></ActionIcon>
+              <Text
+                variant="gradient"
+                gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
+                sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
+                ta="center" p="xs"
+                fz="xl"
+                fw={700}
+              >{"  "}Manta Wallet</Text>
             </div>
           </Header>
         }
