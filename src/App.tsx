@@ -12,6 +12,7 @@ import {
   Burger,
   useMantineTheme,
 } from '@mantine/core';
+import { Home } from "./components";
 
 function App() {
   const theme = useMantineTheme();
@@ -62,7 +63,7 @@ function App() {
           </Header>
         }
       >
-        <Text>Resize app to see responsive navbar in action</Text>
+        <Home />
       </AppShell>
     </MantineProvider>
   );
