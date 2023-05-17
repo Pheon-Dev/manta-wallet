@@ -7,14 +7,14 @@ import {
   Navbar,
   Header,
   Footer,
-  Aside,
+  // Aside,
   Text,
   MediaQuery,
   Burger,
   useMantineTheme,
   ActionIcon,
 } from '@mantine/core';
-import { Home } from "./components";
+import { Home, NavBar } from "./components";
 
 function App() {
   const theme = useMantineTheme();
@@ -31,17 +31,17 @@ function App() {
         navbarOffsetBreakpoint="sm"
         asideOffsetBreakpoint="sm"
         navbar={
-          <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-            <Text>Application navbar</Text>
+          <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 250, lg: 300 }}>
+            <NavBar />
           </Navbar>
         }
-        aside={
-          <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-            <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-              <Text>Application sidebar</Text>
-            </Aside>
-          </MediaQuery>
-        }
+        // aside={
+        //   <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+        //     <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
+        //       <Text>Application sidebar</Text>
+        //     </Aside>
+        //   </MediaQuery>
+        // }
         footer={
           <Footer height={60} p="md">
             Application footer
