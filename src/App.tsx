@@ -1,52 +1,70 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/tauri";
-import "./App.css";
+// import { invoke } from "@tauri-apps/api/tauri";
+import {
+  MantineProvider,
+  AppShell,
+  Navbar,
+  Header,
+  Footer,
+  Aside,
+  Text,
+  MediaQuery,
+  Burger,
+  useMantineTheme,
+} from '@mantine/core';
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  const theme = useMantineTheme();
+  const [opened, setOpened] = useState(false);
 
   return (
-    <div className="container">
-      <h1>Welcome to Tauri!</h1>
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
+      <AppShell
+        styles={{
+          main: {
+            background: theme.colorScheme !== 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+          },
+        }}
+        navbarOffsetBreakpoint="sm"
+        asideOffsetBreakpoint="sm"
+        navbar={
+          <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
+            <Text>Application navbar</Text>
+          </Navbar>
+        }
+        aside={
+          <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+            <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
+              <Text>Application sidebar</Text>
+            </Aside>
+          </MediaQuery>
+        }
+        footer={
+          <Footer height={60} p="md">
+            Application footer
+          </Footer>
+        }
+        header={
+          <Header height={{ base: 50, md: 70 }} p="md">
+            <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+              <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+                <Burger
+                  opened={opened}
+                  onClick={() => setOpened((o) => !o)}
+                  size="sm"
+                  color={theme.colors.gray[6]}
+                  mr="xl"
+                />
+              </MediaQuery>
 
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <div className="row">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            greet();
-          }}
-        >
-          <input
-            id="greet-input"
-            onChange={(e) => setName(e.currentTarget.value)}
-            placeholder="Enter a name..."
-          />
-          <button type="submit">Greet</button>
-        </form>
-      </div>
-      <p>{greetMsg}</p>
-    </div>
+              <Text>Application header</Text>
+            </div>
+          </Header>
+        }
+      >
+        <Text>Resize app to see responsive navbar in action</Text>
+      </AppShell>
+    </MantineProvider>
   );
 }
 
