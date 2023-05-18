@@ -14,23 +14,11 @@ import {
 } from '@mantine/core';
 import { IconCash, IconBuildingBank, IconSend } from '@tabler/icons-react';
 const Home = () => {
-  const elements = [
-    { id: "ji48dm349", amount: "12,011", transaction: 'Send', description: 'Gift Card', time: "12:03 Thu Dec, 2023" },
-    { id: "894j9uow4", amount: "14,007", transaction: 'Withdraw', description: 'Shopping', time: "03:45 Mon May, 2023" },
-    { id: "4uidf933n", amount: "88,906", transaction: 'Deposit', description: 'Savings', time: "22:34 Tue Jun, 2023" },
-    { id: "wh47x74hs", amount: "13,733", transaction: 'Receive', description: 'Sales', time: "15:23 Fri Jan, 2023" },
-    { id: "1vb56nb7e", amount: "14,012", transaction: 'Receive', description: 'Repayment', time: "09:21 Sat Aug, 2023" },
-  ];
-  const rows = elements.map((element) => (
-    <tr key={element.description}>
-      <td>{element.id}</td>
-      <td>{element.amount}</td>
-      <td>{element.transaction}</td>
-      <td>{element.time}</td>
-      <td>{element.description}</td>
-    </tr>
-  ));
-
+  const user = {
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80",
+    name: "Harriette Spoonlicker",
+    email: "hspoonlicker@outlook.com"
+  }
   return (
     <>
       <Text
@@ -41,11 +29,22 @@ const Home = () => {
         fz="xl"
         fw={900}
       >
-        Mr. Walter Wallace
+        {user.name}
       </Text>
-      <Center mx="auto" maw={400} h={200}>
-        <Avatar src={null} alt="profile picture" color="indigo" radius="xl" size="xl" />
+      <Text
+        variant="gradient"
+        gradient={{ from: 'green', to: 'violet', deg: 45 }}
+        sx={{ fontFamily: 'Greycliff CF, monospace' }}
+        ta="center"
+        fz="xs"
+        fw={500}
+      >
+        {user.email}
+      </Text>
+      <Center mx="auto" maw={400} h={100}>
+        <Avatar src={user.image} alt="profile picture" color="indigo" radius="xl" size="xl" />
       </Center>
+
       <Divider
         my="xs"
         variant="dashed"
@@ -118,42 +117,6 @@ const Home = () => {
             </Badge>
           </Group>
         </Card>
-      </Center>
-      <Divider
-        my="xs"
-        variant="dashed"
-        labelPosition="center"
-        label={
-          <>
-            <Box ml={5}>
-              <Text
-                variant="gradient"
-                gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
-                sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
-                ta="center" p="xs"
-                fz="xl"
-                fw={900}
-              >
-                Recent Transactions
-              </Text>
-            </Box>
-          </>
-        }
-        labelProps={{ component: 'a', href: 'https://mantine.dev', variant: 'link', color: 'blue' }}
-      />
-      <Center maw={700} mx="auto" mt="xl">
-        <Table horizontalSpacing="xl">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>amount</th>
-              <th>transaction</th>
-              <th>time</th>
-              <th>description</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </Table>
       </Center>
     </>
   );

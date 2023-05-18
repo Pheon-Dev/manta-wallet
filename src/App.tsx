@@ -19,7 +19,11 @@ import { Wallet, NavBar, Utilities } from "./components";
 function App() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-
+  // const [greetMsg, setGreetMsg] = useState("");
+  // const [name, setName] = useState("");
+  // async function greet() {
+  //   setGreetMsg(await invoke("greet", { name }));
+  // }
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
       <AppShell
@@ -43,7 +47,7 @@ function App() {
         //   </MediaQuery>
         // }
         footer={
-          <Footer height={60} p="md">
+          <Footer height={60}>
             <Utilities />
           </Footer>
         }
