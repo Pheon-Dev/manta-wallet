@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes";
 import { IconWallet } from '@tabler/icons-react';
 // import { invoke } from "@tauri-apps/api/tauri";
 import {
@@ -14,9 +16,10 @@ import {
   useMantineTheme,
   ActionIcon,
 } from '@mantine/core';
-import { Wallet, NavBar, Utilities } from "./components";
+import { NavBar, Utilities } from "./components";
 
 function App() {
+  const element = useRoutes(routes);
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   // const [greetMsg, setGreetMsg] = useState("");
@@ -76,7 +79,7 @@ function App() {
           </Header>
         }
       >
-        <Wallet />
+        {element}
       </AppShell>
     </MantineProvider>
   );

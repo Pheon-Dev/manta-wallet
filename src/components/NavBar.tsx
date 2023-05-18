@@ -1,30 +1,53 @@
 import { useState } from 'react';
-import { IconGauge, IconFingerprint, IconActivity, IconChevronRight } from '@tabler/icons-react';
+import { IconGauge, IconFingerprint, IconActivity, IconChevronRight, IconHome } from '@tabler/icons-react';
 import { Box, NavLink } from '@mantine/core';
+import { NavLink as Link } from 'react-router-dom';
 
 const data = [
-  { icon: IconGauge, label: 'Dashboard', description: 'Item with description' },
+  {
+    icon: IconHome,
+    label: 'Home',
+    description: 'Item with description',
+    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    view: '/'
+  },
+  {
+    icon: IconGauge,
+    label: 'Dashboard',
+    description: 'Item with description',
+    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    view: '/dashboard'
+  },
   {
     icon: IconFingerprint,
     label: 'Security',
+    description: 'Item with description',
     rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
   },
-  { icon: IconActivity, label: 'Activity' },
+  {
+    icon: IconActivity,
+    label: 'Activity',
+    description: 'Recent Transactions',
+    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+  },
 ];
 
 const NavBar = () => {
   const [active, setActive] = useState(0);
 
   const items = data.map((item, index) => (
-    <NavLink
-      key={item.label}
-      active={index === active}
-      label={item.label}
-      description={item.description}
-      rightSection={item.rightSection}
-      icon={<item.icon size="1rem" stroke={1.5} />}
-      onClick={() => setActive(index)}
-    />
+    <Link to={`${item.view}`} style={{ textDecoration: 'none' }}>
+      <NavLink
+
+        style={{ borderRadius: '10px', marginTop: '10px' }}
+        key={item.label}
+        active={index === active}
+        label={item.label}
+        description={item.description}
+        rightSection={item.rightSection}
+        icon={<item.icon size="1rem" stroke={1.5} />}
+        onClick={() => { setActive(index); }}
+      /></Link >
   ));
 
   return <Box>{items}</Box>;

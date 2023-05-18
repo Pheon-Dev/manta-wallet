@@ -18,7 +18,8 @@
     "@tabler/icons-react": "^2.19.0",
     "@tauri-apps/api": "^1.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.3.0",
