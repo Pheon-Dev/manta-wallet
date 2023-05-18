@@ -7,27 +7,28 @@ const data = [
   {
     icon: IconHome,
     label: 'Home',
-    description: 'Item with description',
+    description: 'Your Wallet Info',
     rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
     view: '/'
   },
   {
     icon: IconGauge,
     label: 'Dashboard',
-    description: 'Item with description',
+    // description: 'Recent Transactions',
     rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
     view: '/dashboard'
   },
   {
     icon: IconFingerprint,
     label: 'Security',
-    description: 'Item with description',
+    // description: 'Safety Measures',
+
     rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
   },
   {
     icon: IconActivity,
     label: 'Activity',
-    description: 'Recent Transactions',
+    // description: 'Recent Transactions',
     rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
   },
 ];

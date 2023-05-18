@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
-import { Wallet } from '../components';
+import Wallet from '../pages/wallet';
 import Dashboard from '../pages/dashboard';
 // import Main from '@/pages/main';
 import NotFound from '../pages/NotFound';

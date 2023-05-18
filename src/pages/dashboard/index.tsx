@@ -55,8 +55,8 @@ const Dashboard = () => {
         }
         labelProps={{ component: 'a', href: 'https://mantine.dev', variant: 'link', color: 'blue' }}
       />
-      <Center maw={700} mx="auto" mt="xl">
-        <Table horizontalSpacing="xl">
+      <Center maw={900} mx="auto" mt="xs">
+        <Table horizontalSpacing="xs">
           <thead>
             <tr>
               <th>id</th>

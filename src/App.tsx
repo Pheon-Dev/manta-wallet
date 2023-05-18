@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";
-import { IconWallet } from '@tabler/icons-react';
+import { IconBrandCodecov } from '@tabler/icons-react';
 // import { invoke } from "@tauri-apps/api/tauri";
 import {
   MantineProvider,
@@ -66,7 +66,7 @@ function App() {
                   mr="xl"
                 />
               </MediaQuery>
-              <ActionIcon variant="gradient" gradient={{ from: 'indigo', to: 'cyan', deg: 45 }} size="md"><IconWallet size={18} /></ActionIcon>
+              <ActionIcon variant="gradient" gradient={{ from: 'indigo', to: 'cyan', deg: 45 }} size="md"><IconBrandCodecov size={24} /></ActionIcon>
               <Text
                 variant="gradient"
                 gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
