@@ -16,6 +16,13 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": [
+          "http://127.0.0.1:8080/api/*"
+        ]
       }
     },
     "bundle": {
@@ -42,7 +49,10 @@
         "resizable": true,
         "title": "manta-wallet",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "x": 1412,
+        "y": 2450,
+        "alwaysOnTop": true
       }
     ]
   }

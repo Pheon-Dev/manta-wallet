@@ -1,17 +1,10 @@
-#![allow(unused)]
+// #![allow(unused)]
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(
     all(not(debug_assertions)),
     target_os = "windows",
     windows_subsystem = "windows"
 )]
-
-pub use error::{Error, Result};
-
-mod ctx;
-mod error;
-mod event;
-// mod model;
 
 #[tauri::command]
 fn greet(name: &str) -> String {
