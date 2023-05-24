@@ -74,7 +74,7 @@ const Home = () => {
               value: 'preview',
               label: (
                 <Center>
-                  <IconBuildingBank size="1rem" />
+                  <IconBuildingBank size={16} />
                   <Box ml={10}>Deposit</Box>
                 </Center>
               ),
@@ -83,7 +83,7 @@ const Home = () => {
               value: 'code',
               label: (
                 <Center>
-                  <IconCash size="1rem" />
+                  <IconCash size={16} />
                   <Box ml={10}>Withdraw</Box>
                 </Center>
               ),
@@ -92,7 +92,7 @@ const Home = () => {
               value: 'export',
               label: (
                 <Center>
-                  <IconSend size="1rem" />
+                  <IconSend size={16} />
                   <Box ml={10}>Send</Box>
                 </Center>
               ),

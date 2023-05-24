@@ -8,14 +8,14 @@ const data = [
     icon: IconHome,
     label: 'Home',
     description: 'Your Wallet Info',
-    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    rightSection: <IconChevronRight size={16} stroke={1.5} />,
     view: '/'
   },
   {
     icon: IconGauge,
     label: 'Dashboard',
     // description: 'Recent Transactions',
-    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    rightSection: <IconChevronRight size={16} stroke={1.5} />,
     view: '/dashboard'
   },
   {
@@ -23,13 +23,13 @@ const data = [
     label: 'Security',
     // description: 'Safety Measures',
 
-    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    rightSection: <IconChevronRight size={16} stroke={1.5} />,
   },
   {
     icon: IconActivity,
     label: 'Activity',
     // description: 'Recent Transactions',
-    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    rightSection: <IconChevronRight size={16} stroke={1.5} />,
   },
 ];
 
@@ -46,7 +46,7 @@ const NavBar = () => {
         label={item.label}
         description={item.description}
         rightSection={item.rightSection}
-        icon={<item.icon size="1rem" stroke={1.5} />}
+        icon={<item.icon size={16} stroke={1.5} />}
         onClick={() => { setActive(index); }}
       /></Link >
   ));
