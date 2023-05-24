@@ -5,11 +5,34 @@
     target_os = "windows",
     windows_subsystem = "windows"
 )]
+
+use std::collections::HashMap;
+#[tauri::command]
+async fn login_request(username: String, password: String) -> String {
+    let url = format!("http://127.0.0.1:8080/api/login");
+
+    let mut map = HashMap::new();
+    map.insert("username", &username);
+    map.insert("password", &password);
+
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .json(&map)
+        .send()
+        .await
+        .unwrap()
+        .text()
+        .await
+        .unwrap();
+    return res;
+}
+
 #[tauri::command]
 async fn list_requests() -> String {
     let url = format!("http://127.0.0.1:8080/api/send");
     let res = reqwest::get(&url).await.unwrap().text().await.unwrap();
-    return res
+    return res;
 }
 
 #[tauri::command]
@@ -19,7 +42,11 @@ fn greet(name: &str) -> String {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, list_requests])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            login_request,
+            list_requests
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

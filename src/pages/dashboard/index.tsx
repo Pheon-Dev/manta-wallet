@@ -1,19 +1,43 @@
+import { invoke } from "@tauri-apps/api/tauri";
+import { useState, useEffect } from "react";
 import {
   Text,
-  Avatar,
   Divider,
   Center,
-  Title,
   Table,
-  Card,
-  Badge,
-  Button,
-  Group,
-  SegmentedControl,
   Box
 } from '@mantine/core';
-import { IconCash, IconBuildingBank, IconSend } from '@tabler/icons-react';
+
 const Dashboard = () => {
+  const [list, setList] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [login, setLogin] = useState([]);
+
+  async function login_req() {
+    setUsername("demo1");
+    setPassword("welcome");
+    setLogin(await invoke("login_request", { username, password }));
+  }
+  const list_reqs = async () => {
+    setList(await invoke("list_requests"))
+  }
+
+  useEffect(() => {
+    let sub = true;
+    if (sub) {
+      login_req();
+      setTimeout(() => {
+        list_reqs();
+      }, 5000);
+    }
+
+    return () => {
+      sub = false
+    };
+  }, [username, password])
+
   const elements = [
     { id: "ji48dm349", amount: "12,011", transaction: 'Send', description: 'Gift Card', time: "12:03 Thu Dec, 2023" },
     { id: "894j9uow4", amount: "14,007", transaction: 'Withdraw', description: 'Shopping', time: "03:45 Mon May, 2023" },
@@ -68,6 +92,10 @@ const Dashboard = () => {
           </thead>
           <tbody>{rows}</tbody>
         </Table>
+      </Center>
+      <Center>
+        <pre>{JSON.stringify(list, undefined, 2)}</pre>
+        <pre>{JSON.stringify(login, undefined, 2)}</pre>
       </Center>
     </>
   );

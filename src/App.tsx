@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import { IconBrandCodecov } from '@tabler/icons-react';
-import { invoke } from "@tauri-apps/api/tauri";
 import {
   AppShell,
   Navbar,
@@ -30,16 +29,8 @@ function App() {
   const element = useRoutes(routes);
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("name");
-  const [list, setList] = useState([]);
-  async function greet() {
-    setList(await invoke("list_requests"))
-    setGreetMsg(await invoke("greet", { name }));
-  }
-  greet();
-  // console.log(greetMsg);
-  // console.log(list);
+
+
   return (
     <AppShell
       styles={{

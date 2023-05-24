@@ -37,7 +37,7 @@ const NavBar = () => {
   const [active, setActive] = useState(0);
 
   const items = data.map((item, index) => (
-    <Link to={`${item.view}`} style={{ textDecoration: 'none' }}>
+    <Link key={index} to={`${item.view}`} style={{ textDecoration: 'none' }}>
       <NavLink
 
         style={{ borderRadius: '10px', marginTop: '10px' }}
