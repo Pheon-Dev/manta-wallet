@@ -9,16 +9,27 @@ import {
 } from '@mantine/core';
 
 const Dashboard = () => {
-  const [list, setList] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [login, setLogin] = useState([]);
+
+  const [amount, setAmount] = useState("");
+  const [receiver, setReceiver] = useState("");
+  const [description, setDescription] = useState("");
+  const [createdRequest, setCreatedRequest] = useState("");
+
+  const [list, setList] = useState([]);
 
   async function login_req() {
     setUsername("demo1");
     setPassword("welcome");
     setLogin(await invoke("login_request", { username, password }));
+  }
+  const create_req = async () => {
+    setAmount("100");
+    setReceiver("demo1");
+    setDescription("Gift Card");
+    setCreatedRequest(await invoke("create_request", { amount, receiver, description }));
   }
   const list_reqs = async () => {
     setList(await invoke("list_requests"))
@@ -28,6 +39,9 @@ const Dashboard = () => {
     let sub = true;
     if (sub) {
       login_req();
+      setTimeout(() => {
+        create_req();
+      }, 5000);
       setTimeout(() => {
         list_reqs();
       }, 5000);

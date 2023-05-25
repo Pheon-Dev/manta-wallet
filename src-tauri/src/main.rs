@@ -32,7 +32,7 @@ async fn login_request(username: String, password: String) -> String {
 async fn create_request(amount: String, receiver: String, description: String) -> String {
     let url = format!("http://127.0.0.1:8080/api/create");
     let mut map = HashMap::new();
-    map.insert("amount", amount);
+    map.insert("amount", amount.parse().unwrap());
     map.insert("receiver", receiver);
     map.insert("description", description);
 
